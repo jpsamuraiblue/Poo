@@ -1,7 +1,9 @@
 package Test;
 
 import Utils.ConexionSingleton;
+import controlador.IClienteDao;
 import controlador.IReservaDao;
+import controladorimpl.ClienteDaoimpl;
 import controladorimpl.ReservaDaoImpl;
 
 
@@ -20,9 +22,10 @@ public class Test {
         Test test = new Test();
 //        test.testConexion();
  //        test.listReservas();
-         test.insert();
+      //   test.insert();
      //  test.delete();
-     test.Searchbyid();
+    // test.Searchbyid();
+    test.insertCliente();
         
         
     }
@@ -143,5 +146,28 @@ public class Test {
             System.out.println("error");
         }
     }
+     public void insertCliente(){
+        
+        Cliente c = new Cliente();
+        
+        
+        c.setNombre("10/10/2024");
+       c.setApellidos("12/10/2024");
+        c.setDni("2");
+        c.getEmail();
+        c.setGenero("Masculino");
+        
+       
+         IClienteDao clienteDao = new ClienteDaoimpl();
+        boolean result = clienteDao.insert(c);
+        if(result){
+            System.out.println("success");
+        }else{
+            System.out.println("error");
+        }
+        
+        
+    }
+     
 
 }
